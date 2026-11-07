@@ -1,0 +1,115 @@
+:root {
+  --bg: #0f1218;
+  --surface: #171b24;
+  --hover: #1f2430;
+  --border: #262c38;
+  --text: #e6e9ef;
+  --muted: #8b93a3;
+  --accent: #2dd4bf;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 20px 12px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 8px 24px;
+  font-weight: 600;
+}
+
+.brand img { width: 32px; height: 32px; }
+
+.sidebar a {
+  display: block;
+  margin-bottom: 4px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.sidebar a:hover { background: var(--hover); color: var(--text); }
+.sidebar a.active { background: var(--hover); color: var(--accent); }
+
+.main { flex: 1; min-width: 0; padding: 28px; }
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.1rem; margin-bottom: 12px; }
+.sub { margin-bottom: 24px; color: var(--muted); }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.cards .card { margin-bottom: 0; }
+.card small { color: var(--muted); }
+.card strong { display: block; font-size: 1.8rem; color: var(--accent); }
+.card p { margin-bottom: 10px; color: var(--muted); }
+.card ul { margin-left: 20px; color: var(--muted); }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+.ok { color: #4ade80; }
+.pend { color: #facc15; }
+
+label { display: block; margin: 12px 0 4px; color: var(--muted); }
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus, textarea:focus, select:focus { outline: 1px solid var(--accent); }
+
+button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: var(--bg);
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+footer { margin-top: 32px; color: var(--muted); font-size: 0.85rem; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar { width: 100%; border-right: 0; border-bottom: 1px solid var(--border); }
+}
